@@ -1,19 +1,14 @@
-// const superHero = require('./super-hero');
-// console.log(superHero);
+// const add = require("./math");
+// console.log(add(2, 5));
 
-// superHero.setName('Superman');
-// console.log(superHero.getName());
+const math = require("./math");
 
-// const newSuperHero = require('./super-hero');
-// console.log(newSuperHero.getName());
+// console.log(math.add(2, 5));
+// console.log(math.subtract(50, 22));
+// console.log(math.multiply(10, 2));
 
-const SuperHero = require("./super-hero");
+const { add, subtract, multiply } = math;
 
-const batman = new SuperHero('Batman');
-console.log(batman.getName());
-batman.setName("Bruce Wayne");
-console.log(batman.getName());
-
-const superman = new SuperHero("Superman");
-console.log(superman.getName());
-
+console.log(add(2, 5));
+console.log(subtract(50, 22));
+console.log(multiply(10, 2));
