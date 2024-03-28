@@ -1,7 +1,7 @@
-// const add = require("./math");
+// const add = require("./math-esm.mjs");
 // console.log(add(2, 5));
 
-const math = require("./math");
+const math = require("./math-esm.mjs");
 
 // console.log(math.add(2, 5));
 // console.log(math.subtract(50, 22));
