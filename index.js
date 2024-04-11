@@ -1,4 +1,5 @@
 const http = require("node:http");
+const fs = require("node:fs");
 
 const server = http.createServer((req, res) => {
     const superHero = {
@@ -6,8 +7,17 @@ const server = http.createServer((req, res) => {
         lastName: "Wayne",
     };
 
-    res.writeHead(200, {"Content-Type": "application/json"});
-    res.end(JSON.stringify(superHero));
+    res.writeHead(200, {"Content-Type": "text/html"});
+
+    //3rd option
+    fs.createReadStream(__dirname + "/index.html").pipe(res);
+
+    //2nd option
+    //fs.createReadStream("./index.html").pipe(res);
+
+    //1st option
+    // const html = fs.readFileSync("./index.html", "utf-8");
+    // res.end(html);
 });
 
 server.listen(3000, () => {
