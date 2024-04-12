@@ -1,6 +1,7 @@
 const crypto = require("node:crypto");
 
-const MAX_CALLS = 3;
+process.env.UV_THREADPOOL_SIZE = 6; //number of threads
+const MAX_CALLS = 6;
 const start = Date.now();
 
 for(let i = 0; i < MAX_CALLS; i++ ) {
