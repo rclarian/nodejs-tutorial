@@ -1,44 +1,27 @@
-//Example 6
-const https = require("node:https");
+//3rd Experiment
+process.nextTick(() => console.log("this is process.nextTick 1"));
+process.nextTick(() => {
+    console.log("this is process.nextTick 2");
+    process.nextTick(() => 
+        console.log("this is the inner next tick inside next tick")
+    );
+});
+process.nextTick(() => console.log("this is process.nextTick 3"));
 
-const MAX_CALLS = 12;
-const start = Date.now();
+Promise.resolve().then(() => console.log("this is Promise.resolve 1"));
+Promise.resolve().then(() => {
+    console.log("this is Promise.resolve 2")
+    process.nextTick(() => 
+        console.log("this is the inner next tick inside Promise then block")
+    );
+});
+Promise.resolve().then(() => console.log("this is Promise.resolve 3"));
 
-for(let i = 0; i < MAX_CALLS; i++ ) {
-    https.request("https://google.com", (res) => {
-        res.on("data", () => {});
-        res.on("end", () => {
-            console.log(`Reques: ${i + 1}`, Date.now() - start);
-        });
-    }).end();
-}
+//2nd Experiment
+// Promise.resolve().then(() => console.log("this is promise.resolve 1"));
+//process.nextTick(() => console.log("this is process.nextTick 1"));
 
-//Example 5
-// const crypto = require("node:crypto");
-
-// process.env.UV_THREADPOOL_SIZE = 6; //number of threads
-// const MAX_CALLS = 6;
-// const start = Date.now();
-
-// for(let i = 0; i < MAX_CALLS; i++ ) {
-//     crypto.pbkdf2("password", "salt", 100000, 512, "sha512", () => {
-//         console.log(`Hash: ${i + 1}`, Date.now() - start);
-//     });
-// }
-
-//Example 4
-// const start = Date.now();
-// crypto.pbkdf2Sync("password", "salt", 100000, 512, "sha512");
-// crypto.pbkdf2Sync("password", "salt", 100000, 512, "sha512");
-// crypto.pbkdf2Sync("password", "salt", 100000, 512, "sha512");
-// console.log("Hash: ", Date.now() - start);
-
-
-//const fs = require("node:fs");
-// console.log("First");
-
-// fs.readFile("./file.txt", "utf-8", (err, data) => {
-//     console.log("File contents");
-// });
-
-// console.log("Last");
+//1st experiment
+// console.log("console.log 1");
+// process.nextTick(() => console.log("this is process.next 1"));
+// console.log("console.log 2");
