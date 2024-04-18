@@ -14,3 +14,4 @@ module.exports = greet;
 //npm install - //install all dependencies
 //npm install -g nodemon
 //nodemon index.js
+//npm run start - watch the video
