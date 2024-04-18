@@ -15,3 +15,4 @@ module.exports = greet;
 //npm install -g nodemon
 //nodemon index.js
 //npm run start - watch the video
+//npm init --yes
