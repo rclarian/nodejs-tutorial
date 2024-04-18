@@ -10,3 +10,4 @@ module.exports = greet;
 
 //npm install upper-case //install package
 //npm uninstall upper-case //uninstall package
+//npm install - //install all dependencies
