@@ -3,3 +3,6 @@ function greet(name) {
 }
 
 module.exports = greet;
+
+//npm install upper-case //install package
+//npm uninstall upper-case //uninstall package
